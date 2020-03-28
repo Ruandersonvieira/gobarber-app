@@ -9,8 +9,8 @@ const Stack = createStackNavigator();
 function Routes() {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="SingIn" component={SingIn} />
       <Stack.Screen name="SingUp" component={SingUp} />
+      <Stack.Screen name="SingIn" component={SingIn} />
     </Stack.Navigator>
   );
 }
