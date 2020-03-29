@@ -2,7 +2,7 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'react-native';
 
-import './config/ReactotronConfig.js';
+import './config/ReactotronConfig';
 
 import Routes from '~/routes';
 
