@@ -14,7 +14,7 @@ import {
   SingLinkText,
 } from './styles';
 
-export default function SingIn() {
+export default function SingIn({ navigation }) {
   return (
     <Background>
       <Container>
@@ -35,8 +35,11 @@ export default function SingIn() {
 
           <SubmitButton onPress={() => {}}>Acessar</SubmitButton>
         </Form>
-
-        <SingLink onPress={() => {}}>
+        <SingLink
+          onPress={() => {
+            navigation.navigate('SingUp');
+          }}
+        >
           <SingLinkText>Criar conta gratuita</SingLinkText>
         </SingLink>
       </Container>
