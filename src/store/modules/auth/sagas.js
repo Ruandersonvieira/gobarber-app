@@ -32,7 +32,7 @@ export function* signIn({ payload }) {
   } catch (err) {
     Alert.alert(
       'Falha na autenticação',
-      'Houve um erro no login, verifiique seus dados'
+      'Houve um erro no login, verifique seus dados'
     );
     yield put(signFailure());
   }
@@ -53,7 +53,7 @@ export function* signUp({ payload }) {
   } catch (err) {
     Alert.alert(
       'Falha no cadastro',
-      'Houve um erro no cadastro, verifiique seus dados'
+      'Houve um erro no cadastro, verifique seus dados'
     );
 
     yield put(signFailure());
