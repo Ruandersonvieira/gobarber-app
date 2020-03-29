@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
 import Logo from '~/assets/logo.png';
 
@@ -15,6 +15,11 @@ import {
 } from './styles';
 
 export default function SingUp({ navigation }) {
+  const emailRef = useRef();
+  const passwordRef = useRef();
+
+  function handleSubmit() {}
+
   return (
     <Background>
       <Container>
@@ -25,6 +30,8 @@ export default function SingUp({ navigation }) {
             autoCorrect={false}
             autoCapitalize="none"
             placeholder="Nome completo"
+            returnKeyType="next"
+            onSubmitEditing={() => emailRef.current.focus()}
           />
           <FormInput
             icon="mail-outline"
@@ -32,21 +39,27 @@ export default function SingUp({ navigation }) {
             autoCorrect={false}
             autoCapitalize="none"
             placeholder="Digite seu e-mail"
+            returnKeyType="next"
+            ref={emailRef}
+            onSubmitEditing={() => passwordRef.current.focus()}
           />
           <FormInput
             icon="lock-outline"
             secureTextEntry
             placeholder="Sua senha secreta"
+            returnKeyType="send"
+            ref={passwordRef}
+            onSubmitEditing={handleSubmit}
           />
 
-          <SubmitButton onPress={() => {}}>Criar</SubmitButton>
+          <SubmitButton onPress={handleSubmit}>Criar</SubmitButton>
         </Form>
         <SingLink
           onPress={() => {
-            navigation.navigate('SingUp');
+            navigation.navigate('SingIn');
           }}
         >
-          <SingLinkText>Criar conta gratuita</SingLinkText>
+          <SingLinkText>Já tenho conta</SingLinkText>
         </SingLink>
       </Container>
     </Background>
