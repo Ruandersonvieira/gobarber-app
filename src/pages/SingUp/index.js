@@ -1,12 +1,18 @@
 import React from 'react';
-import { Text } from 'react-native';
 
 import Background from '~/components/Background';
+import Input from '~/components/Input';
+import Button from '~/components/Button';
 
 export default function SingUp() {
   return (
     <Background>
-      <Text> Sing Up </Text>
+      <Input
+        styled={{ marginTop: 30 }}
+        icon="call"
+        placeholder="Digite seu nome"
+      />
+      <Button> Entrar </Button>
     </Background>
   );
 }
