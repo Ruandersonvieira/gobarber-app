@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigation } from '@react-navigation/native';
 
 import Logo from '~/assets/logo.png';
 
@@ -16,8 +17,9 @@ import {
   SingLinkText,
 } from './styles';
 
-export default function SingIn({ navigation }) {
+export default function SingIn() {
   const dispatch = useDispatch();
+  const navigation = useNavigation();
   const passwordRef = useRef();
 
   const [email, setEmail] = useState('');

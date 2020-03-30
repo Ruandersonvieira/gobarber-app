@@ -1,30 +1,13 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
 
-import SingUp from '~/pages/SingUp';
-import SingIn from '~/pages/SingIn';
+import Auth from '~/router/Auth';
+import Application from '~/router/Application';
 
-const Stack = createStackNavigator();
-
-function Routes() {
+export default function Routes(signed = false) {
   return (
-    <Stack.Navigator>
-      <Stack.Screen
-        name="SingIn"
-        component={SingIn}
-        options={{
-          headerShown: false,
-        }}
-      />
-      <Stack.Screen
-        name="SingUp"
-        component={SingUp}
-        options={{
-          headerShown: false,
-        }}
-      />
-    </Stack.Navigator>
+    <NavigationContainer independent={1}>
+      {signed == null ? <Auth /> : <Application />}
+    </NavigationContainer>
   );
 }
-
-export default Routes;
