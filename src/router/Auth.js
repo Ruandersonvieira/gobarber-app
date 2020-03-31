@@ -8,21 +8,13 @@ const Stack = createStackNavigator();
 
 export default function Auth() {
   return (
-    <Stack.Navigator>
-      <Stack.Screen
-        name="SingIn"
-        component={SingIn}
-        options={{
-          headerShown: false,
-        }}
-      />
-      <Stack.Screen
-        name="SingUp"
-        component={SingUp}
-        options={{
-          headerShown: false,
-        }}
-      />
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Stack.Screen name="SingIn" component={SingIn} />
+      <Stack.Screen name="SingUp" component={SingUp} />
     </Stack.Navigator>
   );
 }

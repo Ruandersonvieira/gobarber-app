@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import Dashboard from '~/pages/Dashboard';
 import Profile from '~/pages/Profile';
+import NewAppointment from '~/router/NewAppointment';
 
 const Tab = createBottomTabNavigator();
 
@@ -15,8 +16,10 @@ export default function Application() {
         tabBarIcon: ({ color, size }) => {
           let iconName;
 
-          if (route.name === 'Appointments') {
+          if (route.name === 'Dashboard') {
             iconName = 'event';
+          } else if (route.name === 'NewAppointment') {
+            iconName = 'add-circle-outline';
           } else if (route.name === 'Profile') {
             iconName = 'person';
           }
@@ -30,11 +33,25 @@ export default function Application() {
         inactiveTintColor: 'rgba(255,255,255, 0.6)',
         style: {
           backgroundColor: '#8b41a8',
+          borderTopColor: '#8b41a8',
         },
       }}
     >
-      <Tab.Screen name="Appointments" component={Dashboard} />
-      <Tab.Screen name="Profile" component={Profile} />
+      <Tab.Screen
+        name="Dashboard"
+        component={Dashboard}
+        options={{ title: 'Agendamentos' }}
+      />
+      <Tab.Screen
+        name="NewAppointment"
+        component={NewAppointment}
+        options={{ title: 'Agendar', tabBarVisible: false }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={Profile}
+        options={{ title: 'Perfil' }}
+      />
     </Tab.Navigator>
   );
 }
