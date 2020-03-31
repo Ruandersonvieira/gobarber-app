@@ -3,6 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import Dashboard from '~/pages/Dashboard';
+import Profile from '~/pages/Profile';
 
 const Tab = createBottomTabNavigator();
 
@@ -14,9 +15,9 @@ export default function Application() {
         tabBarIcon: ({ color, size }) => {
           let iconName;
 
-          if (route.name === 'Agendamentos') {
+          if (route.name === 'Appointments') {
             iconName = 'event';
-          } else if (route.name === 'Agendamentos') {
+          } else if (route.name === 'Profile') {
             iconName = 'person';
           }
 
@@ -32,7 +33,8 @@ export default function Application() {
         },
       }}
     >
-      <Tab.Screen name="Agendamentos" component={Dashboard} />
+      <Tab.Screen name="Appointments" component={Dashboard} />
+      <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
   );
 }
