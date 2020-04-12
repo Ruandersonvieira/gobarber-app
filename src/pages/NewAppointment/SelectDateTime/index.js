@@ -36,7 +36,7 @@ export default function SelectDateTime({ route, navigation }) {
           renderItem={({ item }) => (
             <Hour
               onPress={() => {
-                navigation.navigate('Confirm', { item });
+                navigation.navigate('Confirm', { provider, time: item.value });
               }}
               enabled={item.available}
             >
