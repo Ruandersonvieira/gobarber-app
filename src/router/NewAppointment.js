@@ -42,7 +42,7 @@ export default function Auth() {
       <Stack.Screen
         name="SelectDateTime"
         component={SelectDateTime}
-        options={({ navigation }) => ({
+        options={({ route, navigation }) => ({
           title: 'Selecione o horário',
           headerLeft: () => (
             <TouchableOpacity
@@ -58,7 +58,18 @@ export default function Auth() {
       <Stack.Screen
         name="Confirm"
         component={Confirm}
-        options={{ title: 'Confimar' }}
+        options={({ route, navigation }) => ({
+          title: 'Confimar',
+          headerLeft: () => (
+            <TouchableOpacity
+              onPress={() => {
+                navigation.goBack();
+              }}
+            >
+              <Icon name="chevron-left" color="#FFF" size={20} />
+            </TouchableOpacity>
+          ),
+        })}
       />
     </Stack.Navigator>
   );

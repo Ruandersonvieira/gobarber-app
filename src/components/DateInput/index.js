@@ -25,8 +25,8 @@ export default function DateInput({ date, onChange }) {
         <Picker>
           <DateTimePicker
             value={date}
-            onChange={(_, date) => {
-              onChange(date);
+            onChange={(_, dateTime) => {
+              onChange(dateTime);
             }}
             minimumDate={new Date()}
             minuteInterval={60}
