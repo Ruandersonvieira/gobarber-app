@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import { formatRelative, parseISO } from 'date-fns';
 import pt from 'date-fns/locale/pt';
+import { CommonActions } from '@react-navigation/native';
 
 import api from '~/services/api';
 
@@ -20,6 +21,12 @@ export default function Confirm({ route, navigation }) {
   async function handleAddApointment() {
     await api.post('appointments', { provider_id: provider.id, date: time });
 
+    navigation.dispatch(
+      CommonActions.reset({
+        index: 1,
+        routes: [{ name: 'Dashboard' }],
+      })
+    );
     navigation.navigate('Dashboard');
   }
 
